@@ -9,7 +9,13 @@ class Passcard(models.Model):
 
     def __str__(self):
         if self.is_active:
-            return self.owner_name
+            full_info = (
+                f'owner_name: {self.owner_name}\n'
+                f'passcode: {self.passcode}\n'
+                f'created_at: {self.created_at}\n'
+                f'is_active: {self.is_active}'
+            )
+            return full_info
         return f'{self.owner_name} (inactive)'
 
 
