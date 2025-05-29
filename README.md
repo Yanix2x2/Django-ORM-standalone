@@ -25,11 +25,7 @@ pip install -r requirements.txt
 Необходимо создать файл `.env` в корне проекта и заполнить данными:
 ```
 SECRET_KEY=your_secret_key
-USER=your_name_to_db
-PASSWORD=your_password_to_db
-PORT=port_to_db
-HOST=host_to_db
-NAME=name_db
+DATABASES=postgresql://USER:PASSWORD@HOST:PORT/NAME
 ``` 
 
 ## Запуск
