@@ -9,6 +9,6 @@ from datacenter.models import Passcard  # noqa: E402
 
 if __name__ == '__main__':
     total_passcard_amount = Passcard.objects.count()
-    active_passcards = Passcard.objects.filter(is_active=True).count()
+    active_passcard_amount = Passcard.objects.filter(is_active=True).count()
     print('Всего пропусков: ', total_passcard_amount)
-    print('Активных пропусков: ', active_passcards)
+    print('Активных пропусков: ', active_passcard_amount)
