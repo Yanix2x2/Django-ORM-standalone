@@ -9,9 +9,11 @@ def get_duration(visit):
 
 
 def format_duration(duration):
+    hour = 3600
+    minute = 60
     total_seconds = int(duration.total_seconds())
-    hours = total_seconds // 3600
-    minutes = (total_seconds % 3600) // 60
+    hours = total_seconds // hour
+    minutes = (total_seconds % hour) // minute
     return f'{hours:02d}:{minutes:02d}'
 
 
