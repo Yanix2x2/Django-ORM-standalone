@@ -7,29 +7,47 @@
 ## Как установить
 
 ### Окружение
+
 Рекомендуется использовать [virtualenv/venv](https://docs.python.org/3.13/library/venv.html) для изоляции проекта.
 
 * Для Windows:
 ```bash
 python -m venv env
-venv\Scripts\activate
+env\Scripts\activate
 ```
 
 ### Зависимости
+
 Python3 должен быть уже установлен. Используйте `pip` или `pip3` для установки зависимостей:
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Переменные окружения
-Необходимо создать файл `.env` в корне проекта и заполнить данными:
-```
-SECRET_KEY=your_secret_key
-DATABASES=postgresql://USER:PASSWORD@HOST:PORT/NAME
-``` 
+
+Необходимо создать файл `.env` в корне проекта и заполнить данными.
+
+* `SECRET_KEY` - Секретный ключ используется для шифрования сессий, а также для других криптографических операций (например, для подписи сессий, токенов и т.д.)
+Пример: `SECRET_KEY=your_very_secret_key_here`
+
+* `DATABASES` - URL для подключения к базе данных
+Имеет формат `postgresql://USER:PASSWORD@HOST:PORT/NAME`
+Состав:
+    * `USER` - имя пользователя БД
+    * `PASSWORD` - пароль пользователя
+    * `HOST` - хост БД (localhost, IP или домен)
+    * `PORT` - порт БД (обычно 5432 для PostgreSQL)
+    * `NAME` - название базы данных
+Пример: `DATABASES=postgresql://admin:securepass@localhost:5432/mydb`
+
+* `ALLOWED_HOSTS` - Список разрешенных доменов/хостов, с которых может обслуживаться приложение
+Примеры:
+    * Для разработки: `ALLOWED_HOSTS=localhost,127.0.0.1`
+    * Для продакшена: `ALLOWED_HOSTS=example.com,www.example.com`
 
 ## Запуск
-Запуск программы производится через `main.py`
+
+Запуск программы производится через `"manage.py"`
 ```bash
-python main.py
+python manage.py runserver
 ```
